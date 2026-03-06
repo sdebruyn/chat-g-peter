@@ -56,7 +56,7 @@ const Index = () => {
             Chat-G-Pe<span className="text-primary">Ter</span>
           </h1>
           <p className="text-xs text-muted-foreground font-mono">
-            GPT-P.e" t.e" r — v4.2.0 • Online
+            v1.2.3 - na succesvolle IPS  • Online
           </p>
         </div>
       </header>
