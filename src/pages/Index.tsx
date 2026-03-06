@@ -1,7 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { Send } from "lucide-react";
 
-const RESPONSES = ["Zoek 't uit!", "Zoek 't op!"];
+const RESPONSES = [
+  "Zoek 't uit!",
+  "Zoek 't op!",
+  "Ik weet het niet, zoek het uit en laat het mij weten!",
+  "Hmm, even denken... Ik heb hier ergens een database voor. Wacht, nee, die is gecrasht in 2019. Maar goed, als we kijken naar de rijke geschiedenis van ANB — en die gaat ver terug hoor, tot aan de eerste koffieautomaat op kantoor — dan zou je kunnen zeggen dat dit soort vragen eigenlijk al beantwoord hadden moeten zijn. Peter had hier vorige week nog een briljant idee over, iets met een Excel-sheet en drie post-its, maar dat is helaas verloren gegaan toen hij per ongeluk op 'Niet opslaan' klikte. Lange story short: Ik weet het niet. 🤷",
+];
 
 interface Message {
   role: "user" | "bot";
