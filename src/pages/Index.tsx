@@ -10,7 +10,7 @@ interface Message {
 
 const Index = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { role: "bot", text: "Hallo Peter! Ik ben Chat-G-PeTer 🤖 Stel me een vraag!" },
+    { role: "bot", text: "Hallo ANB! Ik ben Chat-G-PeTer 🤖 Stel me een vraag!" },
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
