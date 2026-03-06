@@ -98,7 +98,7 @@ const Index = () => {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Stel een vraag aan Peter..."
+            placeholder="Stel een vraag aan Chat-G-PeTer..."
             className="flex-1 bg-transparent outline-none text-sm text-foreground placeholder:text-muted-foreground"
           />
           <button
