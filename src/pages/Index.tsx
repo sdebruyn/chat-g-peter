@@ -1,11 +1,117 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useRef, useEffect } from "react";
+import { Send } from "lucide-react";
+
+const RESPONSES = ["Zoek 't uit!", "Zoek 't op!"];
+
+interface Message {
+  role: "user" | "bot";
+  text: string;
+}
 
 const Index = () => {
+  const [messages, setMessages] = useState<Message[]>([
+    { role: "bot", text: "Hallo Peter! Ik ben Chat-G-PeTer 🤖 Stel me een vraag!" },
+  ]);
+  const [input, setInput] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isTyping]);
+
+  const handleSend = () => {
+    const trimmed = input.trim();
+    if (!trimmed || isTyping) return;
+
+    setMessages((prev) => [...prev, { role: "user", text: trimmed }]);
+    setInput("");
+    setIsTyping(true);
+
+    const delay = 800 + Math.random() * 1500;
+    setTimeout(() => {
+      const reply = RESPONSES[Math.floor(Math.random() * RESPONSES.length)];
+      setMessages((prev) => [...prev, { role: "bot", text: reply }]);
+      setIsTyping(false);
+    }, delay);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="flex flex-col h-screen max-w-2xl mx-auto">
+      {/* Header */}
+      <header className="flex items-center gap-3 px-6 py-4 border-b border-border">
+        <div className="relative">
+          <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-lg chat-glow">
+            P
+          </div>
+          <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-primary border-2 border-background" />
+        </div>
+        <div>
+          <h1 className="text-lg font-bold tracking-tight text-foreground">
+            Chat-G-Pe<span className="text-primary">Ter</span>
+          </h1>
+          <p className="text-xs text-muted-foreground font-mono">
+            GPT-P.e" t.e" r — v4.2.0 • Online
+          </p>
+        </div>
+      </header>
+
+      {/* Messages */}
+      <div className="flex-1 overflow-y-auto px-4 py-6 space-y-4">
+        {messages.map((msg, i) => (
+          <div
+            key={i}
+            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+          >
+            <div
+              className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
+                msg.role === "user"
+                  ? "bg-primary text-primary-foreground rounded-br-md"
+                  : "bg-secondary text-secondary-foreground rounded-bl-md"
+              }`}
+              style={{ fontFamily: msg.role === "bot" ? "'JetBrains Mono', monospace" : undefined }}
+            >
+              {msg.text}
+            </div>
+          </div>
+        ))}
+
+        {isTyping && (
+          <div className="flex justify-start">
+            <div className="bg-secondary text-muted-foreground px-4 py-2.5 rounded-2xl rounded-bl-md text-sm font-mono">
+              <span className="typing-cursor">Aan het denken</span>
+            </div>
+          </div>
+        )}
+        <div ref={bottomRef} />
+      </div>
+
+      {/* Input */}
+      <div className="px-4 pb-4 pt-2">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSend();
+          }}
+          className="flex items-center gap-2 bg-secondary rounded-xl px-4 py-2 border border-border focus-within:border-primary/50 transition-colors"
+        >
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Stel een vraag aan Peter..."
+            className="flex-1 bg-transparent outline-none text-sm text-foreground placeholder:text-muted-foreground"
+          />
+          <button
+            type="submit"
+            disabled={!input.trim() || isTyping}
+            className="p-2 rounded-lg bg-primary text-primary-foreground disabled:opacity-30 hover:brightness-110 transition-all"
+          >
+            <Send size={16} />
+          </button>
+        </form>
+        <p className="text-[10px] text-muted-foreground text-center mt-2 font-mono">
+          Chat-G-PeTer kan fouten maken. Eigenlijk maakt hij alleen maar fouten.
+        </p>
       </div>
     </div>
   );
