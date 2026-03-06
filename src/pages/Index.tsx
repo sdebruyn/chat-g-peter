@@ -53,7 +53,7 @@ const Index = () => {
         </div>
         <div>
           <h1 className="text-lg font-bold tracking-tight text-foreground">
-            Chat-G-Pe<span className="text-primary">Ter</span>
+            Chat-G-<span className="text-primary">PeTer</span>
           </h1>
           <p className="text-xs text-muted-foreground font-mono">
             v1.2.3 - na succesvolle IPS  • Online
