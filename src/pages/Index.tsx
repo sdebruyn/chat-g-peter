@@ -41,7 +41,7 @@ const Index = () => {
 
     const delay = 800 + Math.random() * 1500;
     setTimeout(() => {
-      const reply = RESPONSES[Math.floor(Math.random() * RESPONSES.length)];
+      const reply = SPECIAL_RESPONSES[trimmed.toLowerCase()] ?? RESPONSES[Math.floor(Math.random() * RESPONSES.length)];
       setMessages((prev) => [...prev, { role: "bot", text: reply }]);
       setIsTyping(false);
     }, delay);
