@@ -62,8 +62,8 @@ const Index = () => {
           <h1 className="text-lg font-bold tracking-tight text-foreground">
             Chat-G-<span className="text-primary">PeTer</span>
           </h1>
-          <p className="text-xs text-muted-foreground font-mono">
-            v1.2.3 - na succesvolle IPS  • Online
+          <p className="text-xs text-muted-foreground font-mono flex items-center gap-1">
+            v1.2.3 - <svg viewBox="0 0 24 24" className="w-3 h-3 inline-block" fill="none"><defs><linearGradient id="jira" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#2684FF"/><stop offset="100%" stopColor="#0052CC"/></linearGradient></defs><path d="M11.53 2L2 11.53a.67.67 0 000 .94L11.53 22a.67.67 0 00.94 0L22 12.47a.67.67 0 000-.94L12.47 2a.67.67 0 00-.94 0z" fill="url(#jira)"/><path d="M11.53 2L2 11.53a.67.67 0 000 .94l4.24 4.24L12 11l5.76 5.71 4.24-4.24a.67.67 0 000-.94L12.47 2a.67.67 0 00-.94 0z" fill="#2684FF"/></svg> IPS status: ARCHITECTURAL REVIEW • Online
           </p>
         </div>
       </header>
