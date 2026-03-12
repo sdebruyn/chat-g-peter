@@ -6,6 +6,8 @@ const RESPONSES = [
   "Zoek 't op!",
   "Ik weet het niet, zoek het uit en laat het mij weten!",
   "... iets over een database ... iets over ANB-geschiedenis ... iets over wat Peter vorige week nog bedacht had ... hier en daar een grapje ... dus eigenlijk een heel lang antwoord om te zeggen: Ik weet het niet.",
+  "...zucht",
+  "Oh nee, Peter toch... ja, je had een vraag kun je het nog eens herhalen?",
 ];
 
 interface Message {
