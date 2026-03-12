@@ -10,6 +10,10 @@ const RESPONSES = [
   "Oh nee, Peter toch... ja, je had een vraag kun je het nog eens herhalen?",
 ];
 
+const SPECIAL_RESPONSES: Record<string, string> = {
+  "wie is peter vandemaele?": "Peter Vandemaele is de legendarische data architect die bij het Agentschap voor Natuur & Bos orde in de datachaos bracht. Na 3 jaren van vlekkeloze in-productiestellingen, succesvol ontrafelen van conceptuele en logische modellen, gepaard met af en toe eens een goed geplaatste \"Och, Peter!\" besloot hij om de reuzen van de data warenhuizen achter zich te laten om zich een jaar lang te focussen op bakstenen huizen.",
+};
+
 interface Message {
   role: "user" | "bot";
   text: string;
@@ -37,7 +41,7 @@ const Index = () => {
 
     const delay = 800 + Math.random() * 1500;
     setTimeout(() => {
-      const reply = RESPONSES[Math.floor(Math.random() * RESPONSES.length)];
+      const reply = SPECIAL_RESPONSES[trimmed.toLowerCase()] ?? RESPONSES[Math.floor(Math.random() * RESPONSES.length)];
       setMessages((prev) => [...prev, { role: "bot", text: reply }]);
       setIsTyping(false);
     }, delay);
