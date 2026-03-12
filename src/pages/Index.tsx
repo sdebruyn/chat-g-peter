@@ -9,6 +9,7 @@ const RESPONSES = [
   "...zucht",
   "Oh nee, Peter toch... ja, je had een vraag kun je het nog eens herhalen?",
   "Hmm, ik weet het niet. Ik denk dat je best een ticketje maakt en dan kunnen we dat bespreken bij die meeting waarvan ik de naam niet meer weet die elke woensdagnamiddag plaatsvindt.",
+  "Daar heb ik nu geen tijd voor. Ik moet eerst nog 7 ticketjes reviewen en dan nog een HLD afwerken, anders gaat Manon boos op mij zijn.",
 ];
 
 const SPECIAL_RESPONSES: Record<string, string> = {
