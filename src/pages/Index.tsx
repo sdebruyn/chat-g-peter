@@ -12,7 +12,7 @@ const RESPONSES = [
 ];
 
 const SPECIAL_RESPONSES: Record<string, string> = {
-  "wie is peter vandemaele?": "Peter Vandemaele is de legendarische data architect die bij het Agentschap voor Natuur & Bos orde in de datachaos bracht. Na 3 jaren van vlekkeloze in-productiestellingen, succesvol ontrafelen van conceptuele en logische modellen, gepaard met af en toe eens een goed geplaatste \"Och, Peter!\" besloot hij om de reuzen van de data warenhuizen achter zich te laten om zich een jaar lang te focussen op bakstenen huizen.",
+  "wie is peter vandemaele?": "Peter Vandemaele is de legendarische data architect die bij het Agentschap voor Natuur & Bos orde in de datachaos bracht. Na 3 jaren van vlekkeloze in-productiestellingen, succesvol ontrafelen van conceptuele en logische modellen - gepaard met af en toe eens een goed geplaatste \"Och, Peter!\" - besloot hij om de reuzen van de data warenhuizen achter zich te laten om zich een jaar lang te focussen op bakstenen huizen.",
 };
 
 interface Message {
